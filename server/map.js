@@ -1,5 +1,4 @@
-const EventEmitter = require('events');
-const emitter = new EventEmitter();
+const emitter = require('./eventEmitter');
 
 const OwnableBuildingType = Object.freeze({
   STORAGE: 0,
@@ -55,6 +54,7 @@ class StreetEdge {
         this.weight = w;
         this.accessibility = acc;
     }
+    id;
     a; //StreetNode
     b; //StreetNode
     weight; //float
@@ -94,14 +94,6 @@ class MapManager {
     }
 }
 
-class MovementEvent {
-    constructor(f, t) {
-        this.from = f;
-        this.to = t;
-    }
-    from; //tuple
-    to; //tuple
-}
 
 class NetworkManager {
     constructor() { 
